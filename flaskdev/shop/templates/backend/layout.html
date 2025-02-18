@@ -1,0 +1,162 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Dashboard | Bootstrap Simple Admin Template</title>
+    <link href="{{ url_for('static', filename='backend/vendor/fontawesome/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/vendor/fontawesome/css/solid.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/vendor/fontawesome/css/brands.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/css/master.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/vendor/flagiconcss/css/flag-icon.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='backend/vendor/datatables/datatables.min.css')}}">
+
+    <script src="{{url_for('static',filename='ckeditor/ckeditor.js')}}"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav id="sidebar" >
+            <div class="sidebar-header">
+                <img src="{{ url_for('static', filename='backend/img/bootstraper-logo.png') }}" alt="bootraper logo" class="app-logo">
+            </div>
+            <ul class="list-unstyled components text-secondary">
+                <li>
+                    <a href="{{url_for('sys.manager.index')}}"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{url_for('sys.cate.index')}}"><i class="fas fa-user"></i> Account</a>
+                </li>
+                <li>
+                    <a href="{{url_for('sys.cate.index')}}"><i class="fas fa-list"></i> Category</a>
+                </li>
+                <li>
+                    <a href="{{url_for('sys.pro.index')}}"><i class="fas fa-box"></i> Product</a>
+                </li>
+                <li>
+                    <a href="{{url_for('sys.menu.index')}}"><i class="fas fa-bars"></i> Menu</a>
+                </li>
+                <li>
+                    <a href="#uielementsmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-layer-group"></i> UI Elements</a>
+                    <ul class="collapse list-unstyled" id="uielementsmenu">
+                        <li>
+                            <a href="ui-buttons.html"><i class="fas fa-angle-right"></i> Buttons</a>
+                        </li>
+                        <li>
+                            <a href="ui-badges.html"><i class="fas fa-angle-right"></i> Badges</a>
+                        </li>
+                        <li>
+                            <a href="ui-cards.html"><i class="fas fa-angle-right"></i> Cards</a>
+                        </li>
+                        <li>
+                            <a href="ui-alerts.html"><i class="fas fa-angle-right"></i> Alerts</a>
+                        </li>
+                        <li>
+                            <a href="ui-tabs.html"><i class="fas fa-angle-right"></i> Tabs</a>
+                        </li>
+                        <li>
+                            <a href="ui-date-time-picker.html"><i class="fas fa-angle-right"></i> Date & Time Picker</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#authmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-user-shield"></i> Authentication</a>
+                    <ul class="collapse list-unstyled" id="authmenu">
+                        <li>
+                            <a href="login.html"><i class="fas fa-lock"></i> Login</a>
+                        </li>
+                        <li>
+                            <a href="signup.html"><i class="fas fa-user-plus"></i> Signup</a>
+                        </li>
+                        <li>
+                            <a href="forgot-password.html"><i class="fas fa-user-lock"></i> Forgot password</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#pagesmenu" data-bs-toggle="collapse" aria-expanded="false" class="dropdown-toggle no-caret-down"><i class="fas fa-copy"></i> Pages</a>
+                    <ul class="collapse list-unstyled" id="pagesmenu">
+                        <li>
+                            <a href="blank.html"><i class="fas fa-file"></i> Blank page</a>
+                        </li>
+                        <li>
+                            <a href="404.html"><i class="fas fa-info-circle"></i> 404 Error page</a>
+                        </li>
+                        <li>
+                            <a href="500.html"><i class="fas fa-info-circle"></i> 500 Error page</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="users.html"><i class="fas fa-user-friends"></i>Users</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i>Settings</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="body" >
+            <!-- navbar navigation component -->
+            <nav class="navbar navbar-expand-lg navbar-white bg-white">
+                <button type="button" id="sidebarCollapse" class="btn btn-light">
+                    <i class="fas fa-bars"></i><span></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="{{url_for('home.index')}}" target="_blank" class="nav-item nav-link dropdown-toggle text-secondary" >
+                                    <i class="fas fa-link"></i> <span>View website</span> 
+                                </a>                                
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <div class="nav-dropdown">
+                                <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fas fa-user"></i> <span>
+                                        {% if current_user.is_authenticated %}
+                                            {{current_user.fullname}}
+                                        {% endif %}
+                                    </span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end nav-link-menu">
+                                    <ul class="nav-list">
+                                        <li><a href="{{url_for('secure.logout')}}" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- end of navbar navigation -->
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event)=>{
+            var toastEL = document.querySelector('.toast');
+            var load = new bootstrap.Toast(toastEL);
+            load.show();
+        });
+    </script>
+    <script src="{{ url_for('static', filename='backend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/vendor/chartsjs/Chart.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/dashboard-charts.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/js/script.js') }}"></script>   
+    <script src="{{ url_for('static', filename='backend/vendor/datatables/datatables.min.js')}}"></script>
+    <script src="{{ url_for('static', filename='backend/js/initiate-datatables.js')}}"></script> 
+</body>
+
+</html>

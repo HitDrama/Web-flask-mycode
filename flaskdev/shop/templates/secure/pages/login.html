@@ -1,0 +1,64 @@
+{% extends 'secure/layout.html' %}
+
+{% block content %}
+<div class="auth-content">
+    <div class="card">
+        <div class="card-body text-center">
+            <div class="mb-4">
+                <img class="brand" src="{{url_for( 'static', filename='backend/img/bootstraper-logo.png')}}" alt="bootstraper logo">
+            </div>
+            <h6 class="mb-4 text-muted">Login account</h6>
+            <form action="" method="post" novalidate>
+                {{ form.hidden_tag() }}
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+
+                {% if 'flashed' in session %}
+                    <script>
+                        // Đoạn script này có thể để xóa cache của thông báo nếu cần
+                    </script>
+                {% endif %}
+                <div class="mb-3 text-start">
+                    <label for="email" class="form-label">{{form.email.label}}</label>
+                    {{ form.email}}
+                    {% for error in form.email.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="password" class="form-label">{{form.password.label}}</label>
+                    {{ form.password}}
+                    {% for error in form.password.errors %}
+                    <div class="invalid-feedback d-block">{{ error }}</div>
+                    {% endfor %}
+                </div>
+                
+                <!-- 
+                <div class="mb-3">
+                    <input type="password" class="form-control" placeholder="Confirm password" required>
+                </div> 
+                -->
+                <div class="mb-3 text-start">
+                    <div class="form-check">
+                      {{ form.remember}}
+                      <label class="form-check-label" for="check1">
+                        Remember me
+                      </label>
+                    </div>
+                </div>
+                {{ form.submit(class="btn btn-primary shadow-2 mb-4")}}
+                <a href="{{url_for('secure.gmail')}}" class="btn btn-primary shadow-2 mb-4">
+                    <i class="fab fa-google"></i> Login with Google
+                </a>
+            </form>
+            <p class="mb-0 text-muted">Register an account? <a href="{{url_for('secure.register')}}">Register</a></p>
+            <p class="mb-0 text-muted">Forget an account? <a href="{{url_for('secure.forget')}}">Forget</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

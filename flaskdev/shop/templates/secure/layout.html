@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- 
+* Bootstrap Simple Admin Template
+* Version: 2.1
+* Author: Alexis Luna
+* Website: https://github.com/alexis-luna/bootstrap-simple-admin-template
+-->
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Sign up | Bootstrap Simple Admin Template</title>
+    <link href="{{ url_for('static', filename='backend/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='backend/css/auth.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        {% block content %}{% endblock %}
+    </div>
+    <script src="{{ url_for('static', filename='backend/vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='backend/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>

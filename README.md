@@ -52,9 +52,32 @@ def Tao_mat_khau(length=8):
 class ConfigGmail:
     SECRET_KEY = os.urandom(24)  #Tạo ngẫu nhiên key: chuỗi ngẫu nhiên
     SQLALCHEMY_DATABASE_URI = 'mysql://root@localhost/flaskdev'
-    GOOGLE_CLIENT_ID = '543477828678-ijino0crqobpegdoarhsvva6dcmn5vkj.apps.googleusercontent.com'
-    GOOGLE_CLIENT_SECRET = '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'
+    GOOGLE_CLIENT_ID = '' # tạo app trên google cloud
+    GOOGLE_CLIENT_SECRET = ''# tạo app trên google cloud
     GOOGLE_ACCESS_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
     GOOGLE_AUTHORIZE_URL = 'https://accounts.google.com/o/oauth2/auth'
     GOOGLE_USERINFO_ENDPOINT = 'https://www.googleapis.com/oauth2/v3/userinfo'
     OAUTHLIB_INSECURE_TRANSPORT = True  # Chỉ sử dụng trong môi trường phát triển
+```
+Các bước cấu hình:
+1. Cấu hình Email:
+
+Điền email và mật khẩu của bạn vào các trường MAIL_USERNAME và MAIL_PASSWORD trong class EmailConfig.
+Bạn cần sử dụng Gmail SMTP server nếu sử dụng Gmail để gửi email.
+2. Cấu hình OAuth:
+
+Thay GOOGLE_CLIENT_ID và GOOGLE_CLIENT_SECRET bằng thông tin bạn có từ Google Developer Console.
+Cấu hình cơ sở dữ liệu:
+
+Thay đổi SQLALCHEMY_DATABASE_URI nếu bạn sử dụng cơ sở dữ liệu khác ngoài MySQL hoặc muốn thay đổi tên cơ sở dữ liệu.
+Cài đặt dự án
+1. Cài đặt các phụ thuộc Python:
+```python
+pip install -r requirements.txt
+```
+2. Chạy ứng dụng Flask:
+```python
+python app.py
+```
+
+

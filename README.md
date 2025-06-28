@@ -1,19 +1,38 @@
-# Flask Shop - Online Course on AI by MYCODE
+<div align="center">
 
-## Giới thiệu
+  # 🛒 Flask Shop - Online Course on AI by MYCODE
 
-Dự án này là một khóa học trong chương trình đào tạo Trí tuệ Nhân tạo tại MYCODE. Web app được xây dựng bằng Flask, với template frontend và backend lấy từ [Themewagon](https://themewagon.com/).
+  <img src="https://github.com/HitDrama/Web-flask-mycode/blob/master/flaskdev/shop/static/Flask.png" alt="Flask Shop Banner" style="max-width: 100%; height: auto;"/>
 
-Dự án này cung cấp một nền tảng học trực tuyến, cho phép người dùng đăng ký, đăng nhập, và học các khóa học về trí tuệ nhân tạo.
+</div>
 
-- **Backend**: Flask
-- **Frontend**: Template lấy từ Themewagon
-- **Cơ sở dữ liệu**: MySQL
+---
 
-Website này là một phần của chương trình học tại [MYCODE](https://www.mycode.edu.vn).
+## 📖 Giới thiệu
+
+Dự án này là một khóa học trong chương trình đào tạo Trí tuệ Nhân tạo tại [MYCODE](https://www.mycode.edu.vn). Web app được xây dựng bằng **Flask**, sử dụng template giao diện frontend và backend từ [Themewagon](https://themewagon.com/).
+
+Nền tảng cho phép người dùng:
+- Đăng ký / Đăng nhập tài khoản
+- Truy cập và học các khóa học trực tuyến về Trí tuệ Nhân tạo
+
+**Công nghệ sử dụng:**
+- 🔧 Backend: Flask
+- 🎨 Frontend: Template từ Themewagon
+- 🗃️ Cơ sở dữ liệu: MySQL
+
+---
+
+## 🎥 Demo
+<div align="center">
+<a href="https://drive.google.com/file/d/1KW2MNfRXXfgGXWuUwgnN3vDB05MwE1j8/view?usp=sharing" target="_blank">
+  <img src="https://github.com/HitDrama/Web-flask-mycode/blob/master/flaskdev/shop/static/flask.gif" alt="Xem video demo Flask Shop" style="max-width: 100%; height: auto;"/>
+</a>
+
+📌 *Nhấn vào video hoặc liên kết để xem video demo đầy đủ.*
+</div>
 
 ## Cấu hình dự án
-
 ### Lưu ý
 
 Dự án này thiếu file cấu hình `config.py`, trong đó chứa các thông tin quan trọng như OAuth và cấu hình SMTP. Bạn cần phải tạo và cấu hình file `config.py` để dự án hoạt động đúng.
@@ -79,5 +98,10 @@ pip install -r requirements.txt
 ```python
 python app.py
 ```
+
+## 👨‍💻 Người phát triển
+Dự án được xây dựng và phát triển bởi:
+
+🧑‍💻 Dev: Đặng Tô Nhân
 
 
